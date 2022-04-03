@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.get('/sign/:wallet', cors(), (req, res) => {
+app.get('/api/sign/:wallet', cors(), (req, res) => {
     const { wallet } = req.params || {};
     if (!wallet) {
         return res.status(200).json({ proof: [], amount: 0 });
