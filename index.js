@@ -21,7 +21,7 @@ app.get('/api/sign', cors(), (req, res) => {
     if (!wallet || Number.isNaN(+index)) {
         return res.status(200).json({ proof: [], amount: 0 });
     };
-    return res.status(200).json({ ...generate(wallet) });
+    return res.status(200).json({ ...generate(wallet, index) });
 });
 
 app.listen(7001, () => {
