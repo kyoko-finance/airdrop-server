@@ -16,9 +16,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.get('/api/sign/:wallet', cors(), (req, res) => {
-    const { wallet } = req.params || {};
-    if (!wallet) {
+app.get('/api/sign', cors(), (req, res) => {
+    const { wallet, index } = req.query || {};
+    if (!wallet || Number.isNaN(+index)) {
         return res.status(200).json({ proof: [], amount: 0 });
     };
     return res.status(200).json({ ...generate(wallet) });
