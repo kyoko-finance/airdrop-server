@@ -2,7 +2,7 @@ const { ethers } = require('ethers');
 const keccak256 = require('keccak256');
 const { MerkleTree } = require('merkletreejs');
 
-const dataList = require('./data1.json');
+const dataList = require('./data.json');
 
 const leafNodes = dataList.map(node => {
     return ethers.utils.solidityKeccak256(['address', 'uint256', 'uint8'], [node.address, node.amount, node.index])
